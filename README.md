@@ -29,7 +29,7 @@
 
 - [ ] Report on the application of this deduce technique in Ethereum with `ECDSA`
 
-- [ ] Implement `SM2` with [RFC6979](https://www.rfc-editor.org/info/rfc6979)
+- [x] Implement `SM2` with [RFC6979](https://www.rfc-editor.org/info/rfc6979)
 
 - [ ] Verify the some pitfalls with proof-of-concept code
 
