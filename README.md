@@ -5,9 +5,9 @@
 
 ### SM3
 
-- [ ] Implement the naive birthday attack of reduced `SM3`
+- [x] Implement the naive birthday attack of reduced `SM3`
 
-- [ ] Implement the Rho method of reduced `SM3`
+- [x] Implement the Rho method of reduced `SM3`
 
 - [ ] Implement length extension attack for `SM3`, `SHA256`, etc.
 
