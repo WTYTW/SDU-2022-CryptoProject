@@ -13,7 +13,7 @@
 
 - [ ] Do your best to optimize `SM3` implementation (software)
 
-- [ ] Implement Merkle Tree following [RFC6962](https://www.rfc-editor.org/info/rfc6962)
+- [x] Implement Merkle Tree following [RFC6962](https://www.rfc-editor.org/info/rfc6962)
 
   > Construct a Merkle tree with 10w leaf nodes
   >
