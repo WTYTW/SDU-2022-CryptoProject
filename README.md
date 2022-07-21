@@ -9,7 +9,7 @@
 
 - [x] Implement the Rho method of reduced `SM3`
 
-- [ ] Implement length extension attack for `SM3`, `SHA256`, etc.
+- [x] Implement length extension attack for `SM3`, `SHA256`, etc.
 
 - [ ] Do your best to optimize `SM3` implementation (software)
 
