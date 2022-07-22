@@ -144,9 +144,6 @@
   <ItemGroup>
     <ClCompile Include="Merkle tree.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Merkle tree.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -1,0 +1,5 @@
+﻿  Merkle tree.cpp
+G:\SDU-2022-CryptoProject\Merkle Tree\Merkle Tree\Merkle tree.cpp(208,1): warning C4244: “-=”: 从“double”转换到“int”，可能丢失数据
+G:\SDU-2022-CryptoProject\Merkle Tree\Merkle Tree\Merkle tree.cpp(228,1): warning C4244: “-=”: 从“double”转换到“int”，可能丢失数据
+G:\SDU-2022-CryptoProject\Merkle Tree\Merkle Tree\Merkle tree.cpp(287,1): warning C4244: “-=”: 从“double”转换到“int”，可能丢失数据
+  Merkle Tree.vcxproj -> G:\SDU-2022-CryptoProject\Merkle Tree\x64\Debug\Merkle Tree.exe
