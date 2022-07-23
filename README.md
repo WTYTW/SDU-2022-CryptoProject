@@ -33,7 +33,7 @@
 
 - [ ] Verify the some pitfalls with proof-of-concept code
 
-- [ ] Implement the above `ECMH` scheme
+- [x] Implement the above `ECMH` scheme
 
 - [ ] Implement a `PGP` scheme with `SM2`
 
