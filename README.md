@@ -62,18 +62,18 @@
 基于GmSSL-sm3，进行生日攻击找到固定比特数的碰撞
 
 - 设置碰撞的比特数
+![image](https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/image-20220729222354390.png)
 
-![image-20220729222354390](G:\SDU-2022-CryptoProject\picture\image-20220729222354390.png)
 
 - 对字符串“naive birthday attack for SM3”的哈希值寻找碰撞
 
   >碰撞24比特：
   >
-  >![Snipaste_2022-07-29_23-26-23](G:\SDU-2022-CryptoProject\picture\Snipaste_2022-07-29_23-26-23.png)
+  >![image](https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-29_23-26-23.png)
   >
   >碰撞32比特：
   >
-  >![Snipaste_2022-07-29_23-24-45](G:\SDU-2022-CryptoProject\picture\Snipaste_2022-07-29_23-24-45.png)
+  >![image](https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-29_23-24-45.png)
 
 ### Rho method
 
@@ -81,13 +81,13 @@
 
 - 设置碰撞比特数及Rho大小
 
-  ![Snipaste_2022-07-29_23-49-58](G:\SDU-2022-CryptoProject\picture\Snipaste_2022-07-29_23-49-58.png)
+  ![image](https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-29_23-49-58.png)
 
 - 对字符串“Rho attack for SM3”的哈希值寻找碰撞
 
   >碰撞24比特，Rho大小为5
   >
-  >![Snipaste_2022-07-30_00-01-31](G:\SDU-2022-CryptoProject\picture\Snipaste_2022-07-30_00-01-31.png)
+  >![image](https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-30_00-01-31.png)
 
 ### length extension attack
 
@@ -103,7 +103,7 @@ $h_1=sm3(key||message)$、$h_2=sha256(key||message)$
 
 $h_1'=sm3(M||extension)$、$h_2'=sha256(M||extension)$可通过验证
 
-![Snipaste_2022-07-30_15-06-55](G:\SDU-2022-CryptoProject\picture\Snipaste_2022-07-30_15-06-55.png)
+![image](https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-30_15-06-55.png)
 
 ### Merkle Tree
 
@@ -111,11 +111,11 @@ $h_1'=sm3(M||extension)$、$h_2'=sha256(M||extension)$可通过验证
 
 定义节点结构体：
 
-<img src="G:\SDU-2022-CryptoProject\picture\Snipaste_2022-07-30_13-30-25.png" alt="Snipaste_2022-07-30_13-30-25" style="zoom:67%;" />
+<img src="https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-30_13-30-25.png" alt="Snipaste_2022-07-30_13-30-25" style="zoom:67%;" />
 
 实现功能包括：
 
-![Snipaste_2022-07-30_13-50-35](G:\SDU-2022-CryptoProject\picture\Snipaste_2022-07-30_13-50-35.png)
+![image](https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-30_13-50-35.png)
 
 - 树的构建
 
@@ -125,19 +125,19 @@ $h_1'=sm3(M||extension)$、$h_2'=sha256(M||extension)$可通过验证
 
   运行结果如下：
 
-  ![Snipaste_2022-07-30_13-47-48](G:\SDU-2022-CryptoProject\picture\Snipaste_2022-07-30_13-47-48.png)
+  ![image](https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-30_13-47-48.png)
 
 ### optimize SM3
 
 在Gmssl SM3源码的基础上进行加速，采用循环展开以及SIMD进行加速，部分代码展示如下：
 
-<img src="G:\SDU-2022-CryptoProject\picture\Snipaste_2022-07-30_00-08-48.png" alt="Snipaste_2022-07-30_00-08-48" style="zoom:67%;" />
+<img src="https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-30_00-08-48.png" alt="Snipaste_2022-07-30_00-08-48" style="zoom:67%;" />
 
-<img src="G:\SDU-2022-CryptoProject\picture\Snipaste_2022-07-30_00-09-04.png" alt="Snipaste_2022-07-30_00-09-04" style="zoom:67%;" />
+<img src="https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-30_00-09-04.png" alt="Snipaste_2022-07-30_00-09-04" style="zoom:67%;" />
 
 使用原代码以及加速后代码运算一百万次后的时间对比如下：
 
-![Snipaste_2022-07-30_00-12-32](G:\SDU-2022-CryptoProject\picture\Snipaste_2022-07-30_00-12-32.png)
+![image](https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-30_00-12-32.png)
 
 - 原    时    间：3431ms
 - 加速后时间：1878ms
@@ -147,13 +147,12 @@ $h_1'=sm3(M||extension)$、$h_2'=sha256(M||extension)$可通过验证
 
 在Gmssl SM4源码的基础上进行加速，采用循环展开以及SIMD进行加速，部分代码展示如下：
 
-<img src="G:\SDU-2022-CryptoProject\picture\Snipaste_2022-07-30_00-27-36.png" alt="Snipaste_2022-07-30_00-27-36" style="zoom:80%;" />
+<img src="https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-30_00-27-36.png" alt="Snipaste_2022-07-30_00-27-36" style="zoom:80%;" />
+使用原代码以及加速后代码进行加解密十万次后的时间对比如下：
 
-![
+![image](https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-30_00-27-57.png)
 
-使用原代码以及加速后代码进行加解密十万次后的时间对比如下：](G:\SDU-2022-CryptoProject\picture\Snipaste_2022-07-30_00-27-57.png)
-
-<img src="G:\SDU-2022-CryptoProject\picture\Snipaste_2022-07-30_00-25-44.png" alt="Snipaste_2022-07-30_00-25-44" style="zoom:80%;" />
+<img src="https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-30_00-25-44.png" alt="Snipaste_2022-07-30_00-25-44" style="zoom:80%;" />
 
 - 原    时    间：4703ms
 - 加速后时间：3277ms
@@ -165,15 +164,15 @@ GmSSL中的SM2中K原本为随机生成，存在安全问题。因此依照RFC69
 
 函数BN_rand即为K生成函数
 
-<img src="G:\SDU-2022-CryptoProject\picture\Snipaste_2022-07-30_09-49-33.png" alt="Snipaste_2022-07-30_09-49-33" style="zoom:80%;" />
+<img src="https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-30_09-49-33.png" alt="Snipaste_2022-07-30_09-49-33" style="zoom:80%;" />
 
 替换到图中调用位置
 
-![Snipaste_2022-07-30_09-51-26](G:\SDU-2022-CryptoProject\picture\Snipaste_2022-07-30_09-51-26.png)
+![image](https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-30_09-51-26.png)
 
 SM2功能验证如下：
 
-<img src="G:\SDU-2022-CryptoProject\picture\Snipaste_2022-07-30_09-53-29.png" alt="Snipaste_2022-07-30_09-53-29" style="zoom:80%;" />
+<img src="https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-30_09-53-29.png" alt="Snipaste_2022-07-30_09-53-29" style="zoom:80%;" />
 
 
 
@@ -185,7 +184,7 @@ SM2功能验证如下：
 
   已知$$s=k^{-1}(e+dr) mod\ n$$其中s、e、r皆已知在k泄露的情况下可求出私钥d
 
-  ![Snipaste_2022-07-30_10-30-24](G:\SDU-2022-CryptoProject\picture\Snipaste_2022-07-30_10-30-24.png)
+  ![image](https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-30_10-30-24.png)
 
   
 
@@ -199,7 +198,7 @@ SM2功能验证如下：
 
   从而$$s_1(e_2+dr_2)=s_2(e_1+dr_1)$$其中$r_1、s_1、r_2、s_2、e_1、e_2$皆已知，从而可求出$$d$$
 
-  ![Snipaste_2022-07-30_10-36-51](G:\SDU-2022-CryptoProject\picture\Snipaste_2022-07-30_10-36-51.png)
+  ![image](https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-30_10-36-51.png)
 
   
 
@@ -211,11 +210,11 @@ SM2功能验证如下：
 
   对于用户1，$$s_1(e_2+d_2r_2)=s_2(e_1+d_1r_1)$$其中$r_1、s_1、r_2、s_2、e_1、e_2、d_1$已知从而可求出用户2的私钥$d_2$。用户2同理
 
-  ![Snipaste_2022-07-30_10-42-48](G:\SDU-2022-CryptoProject\picture\Snipaste_2022-07-30_10-42-48.png)
+  ![image](https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-30_10-42-48.png)
 
 代码运行结果：
 
-<img src="G:\SDU-2022-CryptoProject\picture\Snipaste_2022-07-30_10-43-31.png" alt="Snipaste_2022-07-30_10-43-31" style="zoom:80%;" />
+<img src="https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-30_10-43-31.png" alt="Snipaste_2022-07-30_10-43-31" style="zoom:80%;" />
 
 ### Implement ECMH scheme
 
@@ -225,17 +224,17 @@ $Hash(a,b)=Hash(b,a)、Hash(Hash(a,b,c))=Hash(a,Hash(b,c))$
 
 项目实现基于GmSSL中SHA256、EC等源码，将实现功能封装与ecmh类中
 
-<img src="G:\SDU-2022-CryptoProject\picture\Snipaste_2022-07-30_10-56-35.png" alt="Snipaste_2022-07-30_10-56-35" style="zoom:67%;" />
+<img src="https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-30_10-56-35.png" alt="Snipaste_2022-07-30_10-56-35" style="zoom:67%;" />
 
 测试运行结果如下：
 
-![Snipaste_2022-07-30_10-58-43](G:\SDU-2022-CryptoProject\picture\Snipaste_2022-07-30_10-58-43.png)
+![image](https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-30_10-58-43.png)
 
 
 
 ### PGP scheme with SM2
 
-<img src="G:\SDU-2022-CryptoProject\picture\Snipaste_2022-07-30_11-02-45.png" alt="Snipaste_2022-07-30_11-02-45" style="zoom:80%;" />
+<img src="https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-30_11-02-45.png" alt="Snipaste_2022-07-30_11-02-45" style="zoom:80%;" />
 
 基于python gmssl sm2实现上述PGP方案，分为发送方PGP_sender和接收方PGP_receiver，channel文件夹模拟传输信道
 
@@ -249,7 +248,7 @@ $Hash(a,b)=Hash(b,a)、Hash(Hash(a,b,c))=Hash(a,Hash(b,c))$
 
   分两步：加密、编码后存为json文件
 
-  ![Snipaste_2022-07-30_13-22-32](G:\SDU-2022-CryptoProject\picture\Snipaste_2022-07-30_13-22-32.png)
+  ![image](https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-30_13-22-32.png)
 
   
 
@@ -257,4 +256,4 @@ $Hash(a,b)=Hash(b,a)、Hash(Hash(a,b,c))=Hash(a,Hash(b,c))$
 
   运行：python PGP_receiver.py
 
-  读取channel文件夹中的所有json文件进行解码、解密，输出传输内容![Snipaste_2022-07-30_13-25-04](G:\SDU-2022-CryptoProject\picture\Snipaste_2022-07-30_13-25-04.png)
+  读取channel文件夹中的所有json文件进行解码、解密，输出传输内容![image](https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-30_13-25-04.png)
