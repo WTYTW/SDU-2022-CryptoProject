@@ -1,14 +1,14 @@
 ﻿  main.cpp
   create_key.c
   sm2_sign.c
-G:\创新创业实践\SM2_impl\SM2_impl\sm2_sign.c(25,47): warning C4028: 形参 2 与声明不同
-G:\创新创业实践\SM2_impl\SM2_impl\sm2_sign.c(25,100): warning C4028: 形参 4 与声明不同
-G:\创新创业实践\SM2_impl\SM2_impl\sm2_sign.c(43,26): warning C4133: “函数”: 从“size_t *”到“unsigned int *”的类型不兼容
-G:\创新创业实践\SM2_impl\SM2_impl\sm2_sign.c(48,26): warning C4133: “函数”: 从“size_t *”到“unsigned int *”的类型不兼容
-G:\创新创业实践\SM2_impl\SM2_impl\sm2_sign.c(56,26): warning C4133: “函数”: 从“size_t *”到“unsigned int *”的类型不兼容
-G:\创新创业实践\SM2_impl\SM2_impl\sm2_sign.c(61,26): warning C4133: “函数”: 从“size_t *”到“unsigned int *”的类型不兼容
-G:\创新创业实践\SM2_impl\SM2_impl\sm2_sign.c(70,32): warning C4133: “函数”: 从“size_t *”到“unsigned int *”的类型不兼容
+G:\SDU-2022-CryptoProject\sm2\sm2-impl\SM2_impl\sm2_sign.c(25,47): warning C4028: 形参 2 与声明不同
+G:\SDU-2022-CryptoProject\sm2\sm2-impl\SM2_impl\sm2_sign.c(25,100): warning C4028: 形参 4 与声明不同
+G:\SDU-2022-CryptoProject\sm2\sm2-impl\SM2_impl\sm2_sign.c(43,26): warning C4133: “函数”: 从“size_t *”到“unsigned int *”的类型不兼容
+G:\SDU-2022-CryptoProject\sm2\sm2-impl\SM2_impl\sm2_sign.c(48,26): warning C4133: “函数”: 从“size_t *”到“unsigned int *”的类型不兼容
+G:\SDU-2022-CryptoProject\sm2\sm2-impl\SM2_impl\sm2_sign.c(56,26): warning C4133: “函数”: 从“size_t *”到“unsigned int *”的类型不兼容
+G:\SDU-2022-CryptoProject\sm2\sm2-impl\SM2_impl\sm2_sign.c(61,26): warning C4133: “函数”: 从“size_t *”到“unsigned int *”的类型不兼容
+G:\SDU-2022-CryptoProject\sm2\sm2-impl\SM2_impl\sm2_sign.c(70,32): warning C4133: “函数”: 从“size_t *”到“unsigned int *”的类型不兼容
   sm3_with_preprocess.c
   正在生成代码...
-G:\创新创业实践\SM2_impl\SM2_impl\sm2_sign.c(74): warning C4716: “BN_rand”: 必须返回一个值
-  SM2_impl.vcxproj -> G:\创新创业实践\SM2_impl\x64\Debug\SM2_impl.exe
+G:\SDU-2022-CryptoProject\sm2\sm2-impl\SM2_impl\sm2_sign.c(74): warning C4716: “BN_rand”: 必须返回一个值
+  SM2_impl.vcxproj -> G:\SDU-2022-CryptoProject\sm2\sm2-impl\x64\Debug\SM2_impl.exe

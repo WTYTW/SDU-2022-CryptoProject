@@ -31,6 +31,7 @@ void SM3_LEA(size_t key_len, unsigned char* msg, unsigned char* add, unsigned ch
     size_t datalen = key_len + strlen((const char*)msg);
     size_t blocks = datalen / SM3_BLOCK_SIZE;
     datalen -= blocks * SM3_BLOCK_SIZE;
+    size_t new_len = 0;
 
     sm3_ctx_t new_sig_ctx;
     sm3_init(&new_sig_ctx);
@@ -41,11 +42,14 @@ void SM3_LEA(size_t key_len, unsigned char* msg, unsigned char* add, unsigned ch
     unsigned char* p = new_msg;
     memcpy(p, msg, strlen((const char*)msg));
     p = p + strlen((const char*)msg);
+    new_len += strlen((const char*)msg);
     memset(p, 0x80, 1);
     p = p + 1;
+    new_len++;
     if (datalen <= SM3_BLOCK_SIZE - 9) {
         memset(p, 0x00, SM3_BLOCK_SIZE - datalen - 9);
         p = p + SM3_BLOCK_SIZE - datalen - 9;
+        new_len = new_len + SM3_BLOCK_SIZE - datalen - 9;
     }
     else {
         memset(p, 0x00, SM3_BLOCK_SIZE - datalen - 1);
@@ -53,12 +57,20 @@ void SM3_LEA(size_t key_len, unsigned char* msg, unsigned char* add, unsigned ch
         memset(p, 0x00, SM3_BLOCK_SIZE - 8);
         p = p + SM3_BLOCK_SIZE - 8;
         new_sig_ctx.nblocks++;
+        new_len = new_len + SM3_BLOCK_SIZE - datalen - 1 + SM3_BLOCK_SIZE - 8;
     }
     int org_len = (key_len + strlen((const char*)msg)) << 3;
     for (int i = 3; i >= 0; i--)
         memset(p++, (org_len >> (i << 3)) & 0xff, 1);
-    
+
+    memcpy(p, add, strlen((const char*)add));
+    new_len = new_len + 1 + strlen((const char*)add);
     sm3_update(&new_sig_ctx, add, strlen((const char*)add));
     sm3_final(&new_sig_ctx, new_sig);
+
+    printf("new_msg:");
+    for (int i = 0; i < new_len; i++)
+        printf("%02x", new_msg[i]);
+    printf("\n");
 
 }

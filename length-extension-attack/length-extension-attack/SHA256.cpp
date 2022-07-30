@@ -36,25 +36,35 @@ void SHA256_LEA(size_t key_len, unsigned char* msg, unsigned char* add, unsigned
     size_t blocks = datalen / SHA256_CBLOCK;
     datalen -= blocks * SHA256_CBLOCK;
 
+    size_t new_len = 0;
+
     unsigned char* new_msg = new unsigned char[strlen((const char*)msg) + strlen((const char*)add) + SHA256_CBLOCK + 9];
     unsigned char* p = new_msg;
     memcpy(p, msg, strlen((const char*)msg));
+    new_len += strlen((const char*)msg);
     p = p + strlen((const char*)msg);
     memset(p, 0x80, 1);
+    new_len++;
     p = p + 1;
     if (datalen <= SHA256_CBLOCK - 9) {
         memset(p, 0x00, SHA256_CBLOCK - datalen - 9);
         p = p + SHA256_CBLOCK - datalen - 9;
+        new_len = new_len + SHA256_CBLOCK - datalen - 9;
     }
     else {
         memset(p, 0x00, SHA256_CBLOCK - datalen - 1);
         p = p + SHA256_CBLOCK - datalen - 1;
+        new_len = new_len + SHA256_CBLOCK - datalen - 1;
         memset(p, 0x00, SHA256_CBLOCK - 8);
         p = p + SHA256_CBLOCK - 8;
+        new_len = new_len + SHA256_CBLOCK - 8;
     }
     int org_len = (key_len + strlen((const char*)msg)) << 3;
     for (int i = 3; i >= 0; i--)
         memset(p++, (org_len >> (i << 3)) & 0xff, 1);
+    new_len++;
+    memcpy(p, add, strlen((const char*)add));
+    new_len += strlen((const char*)add);
 
     SHA256_CTX new_sig_ctx;
     SHA256_Init(&new_sig_ctx);
@@ -67,5 +77,10 @@ void SHA256_LEA(size_t key_len, unsigned char* msg, unsigned char* add, unsigned
     }
     SHA256_Update(&new_sig_ctx, add, strlen((const char*)add));
     SHA256_Final(new_sig, &new_sig_ctx);
+
+    printf("new_msg:");
+    for (int i = 0; i < new_len;i++)
+        printf("%02x",new_msg[i]);
+    printf("\n");
 
 }

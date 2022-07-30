@@ -83,10 +83,12 @@ void op_encode(u8 len, u8* key, u8* input, u8* output)
 	four_uCh2uLong(key + 8, &(ulKeyTmpList[2]));
 	four_uCh2uLong(key + 12, &(ulKeyTmpList[3]));
 
-	ulKeyList[0] = ulKeyTmpList[0] ^ TBL_SYS_PARAMS[0];
-	ulKeyList[1] = ulKeyTmpList[1] ^ TBL_SYS_PARAMS[1];
-	ulKeyList[2] = ulKeyTmpList[2] ^ TBL_SYS_PARAMS[2];
-	ulKeyList[3] = ulKeyTmpList[3] ^ TBL_SYS_PARAMS[3];
+	__m128i a = _mm_loadu_epi32(&ulKeyTmpList[0]);
+	__m128i b = _mm_loadu_epi32(&TBL_SYS_PARAMS[0]);
+	a = _mm_xor_si128(a, b);
+	_mm_storeu_epi32(&ulKeyList[0], a);
+
+
 
 
 	for (i = 0; i < 4; i++)             //32次循环迭代运算
@@ -148,14 +150,14 @@ void op_decode(u8 len, u8* key, u8* input, u8* output)
 	four_uCh2uLong(key + 8, &(ulKeyTmpList[2]));
 	four_uCh2uLong(key + 12, &(ulKeyTmpList[3]));
 
+	__m128i a = _mm_loadu_epi32(&ulKeyTmpList[0]);
+	__m128i b = _mm_loadu_epi32(&TBL_SYS_PARAMS[0]);
+	a = _mm_xor_si128(a, b);
+	_mm_storeu_epi32(&ulKeyList[0], a);
 
 
-	ulKeyList[0] = ulKeyTmpList[0] ^ TBL_SYS_PARAMS[0];
-	ulKeyList[1] = ulKeyTmpList[1] ^ TBL_SYS_PARAMS[1];
-	ulKeyList[2] = ulKeyTmpList[2] ^ TBL_SYS_PARAMS[2];
-	ulKeyList[3] = ulKeyTmpList[3] ^ TBL_SYS_PARAMS[3];
 
-	for (i = 0; i < 4; i++)             //32次循环迭代运算
+	for (i = 0; i < 4; i++)             
 	{
 		ulKeyList[i*8 + 4] = ulKeyList[i*8] ^ func_key(ulKeyList[i*8 + 1] ^ ulKeyList[i*8 + 2] ^ ulKeyList[i*8 + 3] ^ TBL_FIX_PARAMS[i*8]);
 		ulKeyList[i*8 + 5] = ulKeyList[i*8+1] ^ func_key(ulKeyList[i*8 + 2] ^ ulKeyList[i*8 + 3] ^ ulKeyList[i*8 + 4] ^ TBL_FIX_PARAMS[i*8+1]);

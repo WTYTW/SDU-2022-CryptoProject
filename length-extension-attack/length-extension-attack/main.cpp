@@ -18,27 +18,30 @@ int main(int argc, char** argv)
 {
     unsigned char key[] = "password";
     unsigned char msg[] = "length extension attack";
-    unsigned char extension[] = " for sha256";
+    unsigned char extension[] = "sha256&sm3";
 
     unsigned char sig[DIGEST_LENGTH];
 
+
+    printf("-----------SHA256 length extension attack--------------\n");
     SHA256_Signature(key, msg, sig);
     if (!SHA256_Verify(key, msg, sig))
         goto err;
-    printf("pass\n");
 
     unsigned char new_sig[DIGEST_LENGTH];
 
     SHA256_LEA(strlen((const char*)key), msg, extension, sig, new_sig);
+    printf("new_sig:");
     print_dgst(new_sig);
 
-
+    printf("\n");
+    printf("-----------SM3 length extension attack--------------\n");
     SM3_Signature(key, msg, sig);
     if (!SM3_Verify(key, msg, sig))
         goto err;
-    printf("pass\n");
 
     SM3_LEA(strlen((const char*)key), msg, extension, sig, new_sig);
+    printf("new_sig:");
     print_dgst(new_sig);
 
     return 0;

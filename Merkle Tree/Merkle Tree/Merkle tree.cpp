@@ -259,7 +259,7 @@ public:
         }
         //¸üĞÂ¹şÏ£Öµ
         UpdateHash(leftN);
-        return false;
+        return true;
     }
 
     string ProveBlock(int n)
@@ -337,6 +337,23 @@ public:
 int main() {
 
     MerkleTree tree;
+
+    string datas[10] = { "a","b","c","d","e","f","g","h","i","j" };
+    if (tree.BuildTree(datas, 10))
+        cout << "Merkle Tree Build Success" << endl;
+    else
+        goto err;
+    if (tree.Append("k"))
+        cout << "Append Success" << endl;
+    else
+        goto err;
+    cout << tree.ProveBlock(2) << endl;
+    cout << tree.ProveBlock(12) << endl;
+
+    return 0;
+
+err:
+    cout << "False!" << endl;
 
     return 0;
 }

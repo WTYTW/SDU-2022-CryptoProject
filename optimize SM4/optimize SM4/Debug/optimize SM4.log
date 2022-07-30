@@ -1,2 +1,3 @@
-﻿  main.cpp
+﻿  op_sm4.cpp
+G:\SDU-2022-CryptoProject\optimize SM4\optimize SM4\op_sm4.cpp(19,25): warning C4244: “=”: 从“unsigned long”转换到“unsigned char”，可能丢失数据
   optimize SM4.vcxproj -> G:\SDU-2022-CryptoProject\optimize SM4\Debug\optimize SM4.exe
