@@ -7,13 +7,33 @@
 | ------ | ------------- | ------------ | --------------------------------- |
 | 王泰宇 | 2019级网安1班 | 201900460008 | [WTYTW](https://github.com/WTYTW) |
 
+
+
 ## 项目简介
 
 课程共包含19个项目，完成10个项目。
 
 涉及编程语言包含：C、C++、Python
 
-部分密码算法基于开源代码库[GmSSL](https://github.com/guanzhi/GmSSL)，环境配置依照[方法](https://blog.csdn.net/vincy_yeha/article/details/120572903)
+
+
+## 运行指导
+
+- 对于c、c++项目
+
+  编译器使用Visual Studio 2019，通过sln文件导入整个项目，部分密码算法基于开源代码库[GmSSL](https://github.com/guanzhi/GmSSL)，环境配置依照[方法](https://blog.csdn.net/vincy_yeha/article/details/120572903)
+
+  安装完成后，vs项目配置如下：
+
+  <img src="https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-30_22-34-54.png" alt="Snipaste_2022-07-30_22-34-54" style="zoom:80%;" />
+
+  <img src="https://github.com/WTYTW/SDU-2022-CryptoProject/blob/main/picture/Snipaste_2022-07-30_22-35-24.png" alt="Snipaste_2022-07-30_22-35-24" style="zoom:80%;" />
+
+- 对于python项目
+
+  pip install gmssl安装包后，可直接运行
+
+
 
 ## 项目列表
 
